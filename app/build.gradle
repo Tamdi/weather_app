@@ -8,8 +8,8 @@ android {
 
     defaultConfig {
         applicationId "com.example.weatherapp"
-        minSdkVersion 23
-        targetSdkVersion 29
+        minSdkVersion 21
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
 
