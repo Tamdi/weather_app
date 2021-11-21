@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONObject
 import java.net.URL
@@ -14,13 +16,21 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val CITY: String = "Pavlodar"
+    var CITY: String = "Nur-Sultan"
     val API: String = "06c921750b9a82d8f5d1294e1586276f" // Use API key
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val users_city= findViewById<EditText>(R.id.users_city)
 
+        findViewById<Button>(R.id.button).setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                var input = users_city.text.toString().trim()
+                CITY = input
+                weatherTask().execute()
+            }
+        })
         weatherTask().execute()
 
     }
@@ -55,18 +65,15 @@ class MainActivity : AppCompatActivity() {
                 val sys = jsonObj.getJSONObject("sys")
                 val wind = jsonObj.getJSONObject("wind")
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
-
                 val updatedAt:Long = jsonObj.getLong("dt")
                 val updatedAtText = "Updated at: "+ SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt*1000))
                 val temp = main.getString("temp")+"°C"
                 val pressure = main.getString("pressure")+"hPa"
                 val humidity = main.getString("humidity")+"%"
-
                 val sunrise:Long = sys.getLong("sunrise")
                 val sunset:Long = sys.getLong("sunset")
                 val windSpeed = wind.getString("speed")+"km/h"
                 val weatherDescription = weather.getString("description")
-
                 val address = jsonObj.getString("name")+", "+sys.getString("country")
 
                 // Populating extracted data into our views
