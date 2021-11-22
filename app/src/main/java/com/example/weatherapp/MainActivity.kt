@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
             try {
-                // Extracting JSON returns from the API
+                // Here extracting values in JSON, returns from the given API
                 val jsonObj = JSONObject(result)
                 val main = jsonObj.getJSONObject("main")
                 val sys = jsonObj.getJSONObject("sys")
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                 val weatherDescription = weather.getString("description")
                 val address = jsonObj.getString("name")+", "+sys.getString("country")
 
-                // Populating extracted data into our views
+                // Populating extracted data into app and visualize it
                 findViewById<TextView>(R.id.address).text = address
                 findViewById<TextView>(R.id.updated_at).text =  updatedAtText
                 findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
@@ -87,10 +87,10 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
 
-                // Views populated, Hiding the loader, Showing the main design
+                // Views populated, then I need hiding the loader, and show the main design
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
-
+                // If something went wrong so show the loader and error message
             } catch (e: Exception) {
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
