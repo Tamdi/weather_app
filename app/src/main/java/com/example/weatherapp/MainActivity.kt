@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 weatherTask().execute()
             }
         })
-        weatherTask().execute()
+        //weatherTask().execute()
 
     }
 

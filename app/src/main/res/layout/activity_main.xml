@@ -123,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
-                        android:text="06:40 AM"/>
+                        android:text="00:00 AM"/>
                 </LinearLayout>
                 <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
                 <LinearLayout
@@ -150,7 +150,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
-                        android:text="06:40 PM"/>
+                        android:text="00:00 PM"/>
                 </LinearLayout>
                 <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
                 <LinearLayout
@@ -174,7 +174,7 @@
                         android:text="Wind"/>
                     <TextView android:id="@+id/wind" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="14dp"
-                        android:text="23 km/h"/>
+                        android:text="0 km/h"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -209,7 +209,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
-                        android:text="1003"/>
+                        android:text="0000 hPa"/>
                 </LinearLayout>
                 <Space
                     android:layout_width="10dp"
@@ -240,7 +240,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
-                        android:text="80"/>
+                        android:text="0 %"/>
                 </LinearLayout>
                 <Space
                     android:layout_width="10dp"
